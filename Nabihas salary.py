@@ -1,5 +1,5 @@
 income=[]
-salary=int(input("Enter this months salary: "))
+salary=float(input("Enter this months salary: "))
 while salary != "stop":
     month=input("Enter the month: ")
     salaries={
@@ -9,9 +9,9 @@ while salary != "stop":
     income.append(salaries)
     sum=0
     expanses=[]
-    savings=int(input("Enter savings percentage: "))
-    rent= int(input("Enter how much is paid for rent: "))
-    electricity= int(input("Enter electricity bill: "))
+    savings=float(input("Enter savings percentage: "))
+    rent= float(input("Enter how much is paid for rent: "))
+    electricity= float(input("Enter electricity bill: "))
     account ={
         "savings":salary*(savings/100),
         "rent":salary*(rent/100),
@@ -20,4 +20,6 @@ while salary != "stop":
     expanses.append(account)
     print(f"this month expanses are {account['electricity']} for electricity, {account["rent"]} for rent, and {account["savings"]} towards savings")
     sum+=account["savings"]+account["rent"]+account["electricity"]
+    amountremained=salary-sum
+    print(f"the sum of the expanses are {sum} and {amountremained} is how much remained of the salary")
     salary=input("Enter this months salary: ")
