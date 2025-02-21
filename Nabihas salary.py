@@ -38,5 +38,6 @@ while salary_input!= "stop":
     amount_remaining = salary - total_expenses
     
     print(f"The sum of the expenses for the month {month} is {total_expenses} and {amount_remaining} is the amount remaining from the salary.")
+    print(f"The month {month} salary multiplied by 2 for fun is {salary**2}")
     salary_input = input("Enter this month's salary (or type 'stop' to end): ")
 print(f"Yearly expenses: Savings: {yearly_expenses['savings']}, Rent: {yearly_expenses['rent']}, Electricity: {yearly_expenses['electricity']}")
