@@ -1,28 +1,42 @@
-income=[]
-yearly_expenses={"savings": 0, "rent": 0, "electricity": 0}
-salary=float(input("Enter this months salary: "))
-while salary != "stop":
-    month=input("Enter the month: ")
-    salaries={
-        "salary":salary,
-        "month":month,
+income = []
+yearly_expenses = {"savings": 0, "rent": 0, "electricity": 0}
+
+salary_input = input("Enter this month's salary (or type 'stop' to end): ")
+
+while salary_input!= "stop":
+    salary = float(salary_input)
+    
+    month = input("Enter the month: ")
+    salaries = {
+        "salary": salary,
+        "month": month,
     }
     income.append(salaries)
-    sum=0
     
-    savingspercenatge=float(input("Enter savings percentage: "))
-    rentpercenatge= float(input("Enter how much is paid for rent: "))
-    electricitypercenatge= float(input("Enter electricity bill: "))
-    account ={
-        "savings":salary*(savingspercenatge/100),
-        "rent":salary*(rentpercenatge/100),
-        "electricity":salary*(electricitypercenatge/100),
+    savings_percentage = float(input("Enter savings percentage: "))
+    rent_percentage = float(input("Enter rent percentage: "))
+    electricity_percentage = float(input("Enter electricity percentage: "))
+    
+    savings_amount = salary * (savings_percentage / 100)
+    rent_amount = salary * (rent_percentage / 100)
+    electricity_amount = salary * (electricity_percentage / 100)
+    
+    account = {
+        "savings": savings_amount,
+        "rent": rent_amount,
+        "electricity": electricity_amount,
     }
-    yearly_expenses["savings"] += account["savings"]
-    yearly_expenses["rent"] += account["rent"]
-    yearly_expenses["electricity"] += account["electricity"]
-    print(f"{month} expanses are {account['electricity']} for electricity, {account["rent"]} for rent, and {account["savings"]} towards savings")
-    sum+=account["savings"]+account["rent"]+account["electricity"]
-    amountremained=salary-sum
-    print(f"the sum of the expanses for the month {month} is {sum} and {amountremained} is how much remained of the salary")
-    salary=input("Enter this months salary: ")
+    
+    
+    yearly_expenses["savings"] += savings_amount
+    yearly_expenses["rent"] += rent_amount
+    yearly_expenses["electricity"] += electricity_amount
+    
+    print(f"{month} expenses are {electricity_amount} for electricity, {rent_amount} for rent, and {savings_amount} towards savings.")
+    
+    total_expenses = savings_amount + rent_amount + electricity_amount
+    amount_remaining = salary - total_expenses
+    
+    print(f"The sum of the expenses for the month {month} is {total_expenses} and {amount_remaining} is the amount remaining from the salary.")
+    salary_input = input("Enter this month's salary (or type 'stop' to end): ")
+print(f"Yearly expenses: Savings: {yearly_expenses['savings']}, Rent: {yearly_expenses['rent']}, Electricity: {yearly_expenses['electricity']}")
