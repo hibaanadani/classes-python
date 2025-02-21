@@ -38,6 +38,7 @@ while salary_input!= "stop":
     amount_remaining = salary - total_expenses
     
     print(f"The sum of the expenses for the month {month} is {total_expenses} and {amount_remaining} is the amount remaining from the salary.")
+    print(f"Estimated yearly rent: {rent_amount * 12} and estimated yearly electricity: {electricity_amount * 12}")
     print(f"The month {month} salary multiplied by 2 for fun is {salary**2}")
     extrasavings=input("Do you want to add extra amount to the savings acount? If yes enter yes ")
     if extrasavings=="yes":
