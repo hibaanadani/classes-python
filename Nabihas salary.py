@@ -1,4 +1,5 @@
 income=[]
+yearly_expenses={"savings": 0, "rent": 0, "electricity": 0}
 salary=float(input("Enter this months salary: "))
 while salary != "stop":
     month=input("Enter the month: ")
@@ -8,18 +9,20 @@ while salary != "stop":
     }
     income.append(salaries)
     sum=0
-    expanses=[]
-    savings=float(input("Enter savings percentage: "))
-    rent= float(input("Enter how much is paid for rent: "))
-    electricity= float(input("Enter electricity bill: "))
+    
+    savingspercenatge=float(input("Enter savings percentage: "))
+    rentpercenatge= float(input("Enter how much is paid for rent: "))
+    electricitypercenatge= float(input("Enter electricity bill: "))
     account ={
-        "savings":salary*(savings/100),
-        "rent":salary*(rent/100),
-        "electricity":salary*(electricity/100),
+        "savings":salary*(savingspercenatge/100),
+        "rent":salary*(rentpercenatge/100),
+        "electricity":salary*(electricitypercenatge/100),
     }
-    expanses.append(account)
-    print(f"this month expanses are {account['electricity']} for electricity, {account["rent"]} for rent, and {account["savings"]} towards savings")
+    yearly_expenses["savings"] += account["savings"]
+    yearly_expenses["rent"] += account["rent"]
+    yearly_expenses["electricity"] += account["electricity"]
+    print(f"{month} expanses are {account['electricity']} for electricity, {account["rent"]} for rent, and {account["savings"]} towards savings")
     sum+=account["savings"]+account["rent"]+account["electricity"]
     amountremained=salary-sum
-    print(f"the sum of the expanses are {sum} and {amountremained} is how much remained of the salary")
+    print(f"the sum of the expanses for the month {month} is {sum} and {amountremained} is how much remained of the salary")
     salary=input("Enter this months salary: ")
