@@ -39,5 +39,10 @@ while salary_input!= "stop":
     
     print(f"The sum of the expenses for the month {month} is {total_expenses} and {amount_remaining} is the amount remaining from the salary.")
     print(f"The month {month} salary multiplied by 2 for fun is {salary**2}")
+    extrasavings=input("Do you want to add extra amount to the savings acount? If yes enter yes ")
+    if extrasavings=="yes":
+        extrasavingsamount=float(input("Please enter amount that you need to add to the savings account: "))
+        savings_amount+=extrasavingsamount
+        print(f"You have {savings_amount} for the month {month}")
     salary_input = input("Enter this month's salary (or type 'stop' to end): ")
 print(f"Yearly expenses: Savings: {yearly_expenses['savings']}, Rent: {yearly_expenses['rent']}, Electricity: {yearly_expenses['electricity']}")
