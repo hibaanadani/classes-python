@@ -23,7 +23,7 @@ class Car(Vehical):
         self.seating_capacity=seating_capacity
         self.engine_capacity=engine_capacity
 
-    def override_display_info(self):
+    def display_info(self):
         print(f"{super().display_info}, seats: {self.seating_capacity}, engine:{self.engine_capacity}")
 
 class Motorcycle(Vehical):
@@ -32,10 +32,8 @@ class Motorcycle(Vehical):
         self.seating_capacity=seating_capacity
         self.engine_capacity=engine_capacity
 
-    def override_display_info(self):
+    def display_info(self):
         print(f"{super().display_info}, seats: {self.seating_capacity}, engine:{self.engine_capacity}")
-    
-    
-    
-
-    
+     
+def show_vehicle_info(vehical):
+    return vehical.display_info
