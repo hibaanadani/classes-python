@@ -1,3 +1,4 @@
+vehicles=[]
 class Vehicle:
     def __init__(self,brand,model,year,price):
         self.brand=brand
@@ -19,7 +20,7 @@ class Vehicle:
     
 class Car(Vehicle):
     def __init__(self, brand, model, year, price, seating_capacity):
-        super().__init__(brand, model, year, price)
+        super().__init__(brand, model, year,price)
         self.seating_capacity=seating_capacity
 
     def display_info(self):
@@ -36,6 +37,15 @@ class Motorcycle(Vehicle):
 def show_vehicle_info(vehicle):
     print (vehicle.display_info())
 
+def prompt():
+    print("Choose from the options below:")
+    print("1.Add vehicle")
+    print("2.Display Vehicles available")
+    print("3.Display vehicle info")
+    print("4.Rent the vehicle chosen for x days:")
+    print("5.Set rental price per day:")
+    options=int(input("Enter the option chosen"))
+    
 
 toyota = Car("Toyota","Corolla",2020,50,5)
 yamaha = Motorcycle("Yamaha","R1",2019,30,"998cc")
