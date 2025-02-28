@@ -34,8 +34,6 @@ class Motorcycle(Vehicle):
     def display_info(self):
         return f"Motorcycle:{super().display_info()},engine:{self.engine_capacity}"
      
-def show_vehicle_info(vehicle):
-    print (vehicle.display_info())
 
 def prompt():
     print("Choose from the options below:")
@@ -69,6 +67,12 @@ def addVehicle():
         newmotorcycle=Motorcycle(brand,model,year,rental_price_per_day,engine_capacity)
         vehicles.append(newmotorcycle)
 
+def display_vehicles_available():
+    print(vehicles)
+
+def show_vehicle_info(vehicle):
+    print (vehicle.display_info())
+    
 toyota = Car("Toyota","Corolla",2020,50,5)
 yamaha = Motorcycle("Yamaha","R1",2019,30,"998cc")
 show_vehicle_info(toyota)
