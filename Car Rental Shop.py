@@ -12,10 +12,10 @@ class Vehical:
         return days*self.price
     
     def set_rental_price_per_day(self,price):
-        self.price=price
+        self.__price=price
 
     def get_rental_price_per_day(self):
-        return self.price
+        return self.__price
     
 class Car(Vehical):
     def __init__(self, brand, model, year, __price, seating_capacity,engine_capacity):
