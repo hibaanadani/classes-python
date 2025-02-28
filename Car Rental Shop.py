@@ -68,11 +68,16 @@ def addVehicle():
         vehicles.append(newmotorcycle)
 
 def display_vehicles_available():
-    print(vehicles)
+    print(*enumerate(vehicles),sep='\n')
 
 def show_vehicle_info(vehicle):
     print (vehicle.display_info())
-    
+
+def rent_for_x_days():
+    chosen_vehicle=input("Enter the number of the vehicle choosen: ")
+    numb_of_days=int(input("Enter the numbers of days you want to rent the chosen vehicle for: "))   
+
+
 toyota = Car("Toyota","Corolla",2020,50,5)
 yamaha = Motorcycle("Yamaha","R1",2019,30,"998cc")
 show_vehicle_info(toyota)
