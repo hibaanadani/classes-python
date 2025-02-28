@@ -44,8 +44,30 @@ def prompt():
     print("3.Display vehicle info")
     print("4.Rent the vehicle chosen for x days:")
     print("5.Set rental price per day:")
-    options=int(input("Enter the option chosen"))
+    print("6.Exit the program")
+    option=int(input("Enter the option chosen"))
     
+    return option
+
+def addVehicle():
+    type_of_vehicle=input("Is the vehicle added a car or a motorcycle: ")
+    if type_of_vehicle=="car":
+        brand=input("Enter the brand of the car: ")
+        model=input("Enter the model of the car: ")
+        year=int(input("Enter the year of the car: "))
+        rental_price_per_day =input("Enter the rental price per day of the car: ")
+        number_of_seats=int(input("Enter how many seats does the car have:" ))
+        newcar=Car(brand,model,year,rental_price_per_day,number_of_seats)
+        vehicles.append(newcar)
+
+    elif type_of_vehicle=="motorcycle":
+        brand=input("Enter the brand of the motorcycle: ")
+        model=input("Enter the model of the motorcycle: ")
+        year=int(input("Enter the year of the motorcycle: "))
+        rental_price_per_day =input("Enter the rental price per day of the motorcycle: ")
+        engine_capacity=int(input("Enter the capacity of the engine:" ))
+        newmotorcycle=Motorcycle(brand,model,year,rental_price_per_day,engine_capacity)
+        vehicles.append(newmotorcycle)
 
 toyota = Car("Toyota","Corolla",2020,50,5)
 yamaha = Motorcycle("Yamaha","R1",2019,30,"998cc")
