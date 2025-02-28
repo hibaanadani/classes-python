@@ -36,7 +36,11 @@ class Motorcycle(Vehicle):
 def show_vehicle_info(vehicle):
     print (vehicle.display_info())
 
+
 toyota = Car("Toyota","Corolla",2020,50,5)
 yamaha = Motorcycle("Yamaha","R1",2019,30,"998cc")
 show_vehicle_info(toyota)
 show_vehicle_info(yamaha)
+
+toyota.get_rental_price_per_day()
+yamaha.get_rental_price_per_day()
