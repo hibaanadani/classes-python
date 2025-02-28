@@ -9,7 +9,7 @@ class Vehicle:
         return f"{self.brand} {self.model},Year: {self.year},Rental Price: ${self.__price}/day"
     
     def calculate_rental_cost(self,days):
-        return days*self.__price
+        return f"Rental cost for {self.brand} {self.model} for {days} days: ${days*self.__price}"
     
     def set_rental_price_per_day(self,price):
         self.__price=price
@@ -42,5 +42,8 @@ yamaha = Motorcycle("Yamaha","R1",2019,30,"998cc")
 show_vehicle_info(toyota)
 show_vehicle_info(yamaha)
 
-toyota.get_rental_price_per_day()
-yamaha.get_rental_price_per_day()
+print(toyota.calculate_rental_cost(3))
+print(yamaha.calculate_rental_cost(5))
+
+toyota.set_rental_price_per_day(55)
+show_vehicle_info(toyota)
