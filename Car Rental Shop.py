@@ -80,10 +80,10 @@ def display_vehicles_available():
         for i,vehicle in enumerate(vehicles):
             print(f"{i}.{vehicle.display_info()}")
 
-def show_vehicle_info(vehicle):
+def show_vehicle_info():
     chosen_vehicle=int(input("Enter the number of the vehicle choosen: "))
     if 0<=chosen_vehicle<len(vehicles):
-        print (vehicle[chosen_vehicle].display_info())
+        print (vehicles[chosen_vehicle].display_info())
     else:
         print("Vehicle number incorrect")
 
