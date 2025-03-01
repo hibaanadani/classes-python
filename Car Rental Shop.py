@@ -104,7 +104,7 @@ def rental_price():
         print("Vehicle number incorrect")
 
 option=prompt()
-while option!=6:
+while option<6:
     if option == 1:
         addVehicle()
     elif option == 2:
@@ -115,6 +115,4 @@ while option!=6:
         rent_for_x_days()
     elif option == 5:
         rental_price()
-    elif option == 6:
-        break
     option=prompt()
