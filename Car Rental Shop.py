@@ -72,7 +72,7 @@ def display_vehicles_available():
 
 def show_vehicle_info(vehicle):
     chosen_vehicle=input("Enter the number of the vehicle choosen: ")
-    if 0<=chosen_vehicle<=len(vehicle):
+    if 0<=chosen_vehicle<=len(vehicles):
         print (vehicle[chosen_vehicle].display_info())
     else:
         print("Vehicle number incorrect")
@@ -80,7 +80,12 @@ def show_vehicle_info(vehicle):
 
 def rent_for_x_days():
     chosen_vehicle=input("Enter the number of the vehicle choosen: ")
-    numb_of_days=int(input("Enter the numbers of days you want to rent the chosen vehicle for: "))   
+    if 0<=chosen_vehicle<=len(vehicles):
+        numb_of_days=int(input("Enter the numbers of days you want to rent the chosen vehicle for: "))
+        print(vehicles[chosen_vehicle].calculate_rental_cost(numb_of_days))
+    else:
+        print("Vehicle number incorrect")
+    
 
 
 toyota = Car("Toyota","Corolla",2020,50,5)
