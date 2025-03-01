@@ -63,7 +63,7 @@ def addVehicle():
             model=input("Enter the model of the motorcycle: ")
             year=int(input("Enter the year of the motorcycle: "))
             rental_price_per_day =input("Enter the rental price per day of the motorcycle: ")
-            engine_capacity=int(input("Enter the capacity of the engine: " ))
+            engine_capacity=input("Enter the capacity of the engine: " )
             newmotorcycle=Motorcycle(brand,model,year,rental_price_per_day,engine_capacity)
             vehicles.append(newmotorcycle)
         else:
