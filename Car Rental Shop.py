@@ -43,41 +43,47 @@ def prompt():
     print("4.Rent the vehicle chosen for x days")
     print("5.Set rental price per day")
     print("6.Exit the program")
-    option=int(input("Enter the option chosen"))
+    option=int(input("Enter the option chosen: "))
     return option
 
 def addVehicle():
-    type_of_vehicle=input("Is the vehicle added a car or a motorcycle: ")
-    if type_of_vehicle=="car":
-        brand=input("Enter the brand of the car: ")
-        model=input("Enter the model of the car: ")
-        year=int(input("Enter the year of the car: "))
-        rental_price_per_day =input("Enter the rental price per day of the car: ")
-        number_of_seats=int(input("Enter how many seats does the car have:" ))
-        newcar=Car(brand,model,year,rental_price_per_day,number_of_seats)
-        vehicles.append(newcar)
-        
-    elif type_of_vehicle=="motorcycle":
-        brand=input("Enter the brand of the motorcycle: ")
-        model=input("Enter the model of the motorcycle: ")
-        year=int(input("Enter the year of the motorcycle: "))
-        rental_price_per_day =input("Enter the rental price per day of the motorcycle: ")
-        engine_capacity=int(input("Enter the capacity of the engine:" ))
-        newmotorcycle=Motorcycle(brand,model,year,rental_price_per_day,engine_capacity)
-        vehicles.append(newmotorcycle)
+    add_another=True
+    while add_another:
+        type_of_vehicle=input("Is the vehicle added a car or a motorcycle: ")
+        if type_of_vehicle=="car":
+            brand=input("Enter the brand of the car: ")
+            model=input("Enter the model of the car: ")
+            year=int(input("Enter the year of the car: "))
+            rental_price_per_day =input("Enter the rental price per day of the car: ")
+            number_of_seats=int(input("Enter how many seats does the car have: " ))
+            newcar=Car(brand,model,year,rental_price_per_day,number_of_seats)
+            vehicles.append(newcar)
+        elif type_of_vehicle=="motorcycle":
+            brand=input("Enter the brand of the motorcycle: ")
+            model=input("Enter the model of the motorcycle: ")
+            year=int(input("Enter the year of the motorcycle: "))
+            rental_price_per_day =input("Enter the rental price per day of the motorcycle: ")
+            engine_capacity=int(input("Enter the capacity of the engine: " ))
+            newmotorcycle=Motorcycle(brand,model,year,rental_price_per_day,engine_capacity)
+            vehicles.append(newmotorcycle)
+        else:
+            print("Please enter car or motorcycle only")
+        add_another=input("Do you want to add another vehicle: ")
+        if add_another!="yes":
+            add_another=False
 
 def display_vehicles_available():
     print(*enumerate(vehicles),sep='\n')
 
 def show_vehicle_info(vehicle):
-    chosen_vehicle=input("Enter the number of the vehicle choosen: ")
+    chosen_vehicle=int(input("Enter the number of the vehicle choosen: "))
     if 0<=chosen_vehicle<=len(vehicles):
         print (vehicle[chosen_vehicle].display_info())
     else:
         print("Vehicle number incorrect")
 
 def rent_for_x_days():
-    chosen_vehicle=input("Enter the number of the vehicle choosen: ")
+    chosen_vehicle=int(input("Enter the number of the vehicle choosen: "))
     if 0<=chosen_vehicle<=len(vehicles):
         numb_of_days=int(input("Enter the numbers of days you want to rent the chosen vehicle for: "))
         print(vehicles[chosen_vehicle].calculate_rental_cost(numb_of_days))
@@ -85,7 +91,7 @@ def rent_for_x_days():
         print("Vehicle number incorrect")
     
 def rental_price():
-    chosen_vehicle=input("Enter the number of the vehicle choosen: ")
+    chosen_vehicle=int(input("Enter the number of the vehicle choosen: "))
     if 0<=chosen_vehicle<=len(vehicles):
         newprice=int(input("Enter the new rental price of the selected vehicle: "))
         vehicles[chosen_vehicle].set_rental_price_per_day(newprice)
