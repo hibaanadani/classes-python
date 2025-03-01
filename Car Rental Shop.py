@@ -40,11 +40,10 @@ def prompt():
     print("1.Add vehicle")
     print("2.Display Vehicles available")
     print("3.Display vehicle info")
-    print("4.Rent the vehicle chosen for x days:")
-    print("5.Set rental price per day:")
+    print("4.Rent the vehicle chosen for x days")
+    print("5.Set rental price per day")
     print("6.Exit the program")
     option=int(input("Enter the option chosen"))
-    
     return option
 
 def addVehicle():
@@ -57,7 +56,7 @@ def addVehicle():
         number_of_seats=int(input("Enter how many seats does the car have:" ))
         newcar=Car(brand,model,year,rental_price_per_day,number_of_seats)
         vehicles.append(newcar)
-
+        
     elif type_of_vehicle=="motorcycle":
         brand=input("Enter the brand of the motorcycle: ")
         model=input("Enter the model of the motorcycle: ")
@@ -77,7 +76,6 @@ def show_vehicle_info(vehicle):
     else:
         print("Vehicle number incorrect")
 
-
 def rent_for_x_days():
     chosen_vehicle=input("Enter the number of the vehicle choosen: ")
     if 0<=chosen_vehicle<=len(vehicles):
@@ -93,6 +91,21 @@ def rental_price():
         vehicles[chosen_vehicle].set_rental_price_per_day(newprice)
     else:
         print("Vehicle number incorrect")
+
+option=prompt()
+while option!=6:
+    if option == 1:
+        addVehicle()
+    elif option == 2:
+        display_vehicles_available()
+    elif option == 3:
+        show_vehicle_info()
+    elif option == 4:
+        rent_for_x_days()
+    elif option == 5:
+        rental_price()
+    elif option >= 6:
+        break
 
 toyota = Car("Toyota","Corolla",2020,50,5)
 yamaha = Motorcycle("Yamaha","R1",2019,30,"998cc")
