@@ -71,7 +71,12 @@ def display_vehicles_available():
     print(*enumerate(vehicles),sep='\n')
 
 def show_vehicle_info(vehicle):
-    print (vehicle.display_info())
+    chosen_vehicle=input("Enter the number of the vehicle choosen: ")
+    if 0<=chosen_vehicle<=len(vehicle):
+        print (vehicle[chosen_vehicle].display_info())
+    else:
+        print("Vehicle number incorrect")
+
 
 def rent_for_x_days():
     chosen_vehicle=input("Enter the number of the vehicle choosen: ")
