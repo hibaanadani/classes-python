@@ -86,7 +86,13 @@ def rent_for_x_days():
     else:
         print("Vehicle number incorrect")
     
-
+def rental_price():
+    chosen_vehicle=input("Enter the number of the vehicle choosen: ")
+    if 0<=chosen_vehicle<=len(vehicles):
+        newprice=int(input("Enter the new rental price of the selected vehicle: "))
+        vehicles[chosen_vehicle].set_rental_price_per_day(newprice)
+    else:
+        print("Vehicle number incorrect")
 
 toyota = Car("Toyota","Corolla",2020,50,5)
 yamaha = Motorcycle("Yamaha","R1",2019,30,"998cc")
