@@ -76,8 +76,9 @@ def display_vehicles_available():
     if len(vehicles)==0:
         print("No vehicles available")
     else:
-        for i in vehicles:
-            print(f"{i}.{vehicles[i].display_info()}")
+        #used chatgpt for iterating
+        for i,vehicle in enumerate(vehicles):
+            print(f"{i}.{vehicle.display_info()}")
 
 def show_vehicle_info(vehicle):
     chosen_vehicle=int(input("Enter the number of the vehicle choosen: "))
