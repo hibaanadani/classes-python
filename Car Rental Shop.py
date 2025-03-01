@@ -73,18 +73,22 @@ def addVehicle():
             add_another=False
 
 def display_vehicles_available():
-    print(*enumerate(vehicles),sep='\n')
+    if len(vehicles)==0:
+        print("No vehicles available")
+    else:
+        for i in vehicles:
+            print(f"{i}.{vehicles[i].display_info()}")
 
 def show_vehicle_info(vehicle):
     chosen_vehicle=int(input("Enter the number of the vehicle choosen: "))
-    if 0<=chosen_vehicle<=len(vehicles):
+    if 0<=chosen_vehicle<len(vehicles):
         print (vehicle[chosen_vehicle].display_info())
     else:
         print("Vehicle number incorrect")
 
 def rent_for_x_days():
     chosen_vehicle=int(input("Enter the number of the vehicle choosen: "))
-    if 0<=chosen_vehicle<=len(vehicles):
+    if 0<=chosen_vehicle<len(vehicles):
         numb_of_days=int(input("Enter the numbers of days you want to rent the chosen vehicle for: "))
         print(vehicles[chosen_vehicle].calculate_rental_cost(numb_of_days))
     else:
@@ -92,7 +96,7 @@ def rent_for_x_days():
     
 def rental_price():
     chosen_vehicle=int(input("Enter the number of the vehicle choosen: "))
-    if 0<=chosen_vehicle<=len(vehicles):
+    if 0<=chosen_vehicle<len(vehicles):
         newprice=int(input("Enter the new rental price of the selected vehicle: "))
         vehicles[chosen_vehicle].set_rental_price_per_day(newprice)
     else:
@@ -110,9 +114,9 @@ while option!=6:
         rent_for_x_days()
     elif option == 5:
         rental_price()
-    elif option >= 6:
+    elif option == 6:
         break
-
+    option=prompt()
 toyota = Car("Toyota","Corolla",2020,50,5)
 yamaha = Motorcycle("Yamaha","R1",2019,30,"998cc")
 show_vehicle_info(toyota)
